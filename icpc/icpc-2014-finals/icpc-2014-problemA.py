@@ -51,7 +51,7 @@ def solution(n, depth):
         print "%d to %d" %(6 + modifier, -1 + modifier)
         print "%d to %d" %(3 + modifier, 6 + modifier)
         print "%d to %d" %(0 + modifier, 3 + modifier)
-        print "%d to %d" %(7 + modifier, 0 + modifier)                                                                       
+        print "%d to %d" %(7 + modifier, 0 + modifier)
     elif n==5:
         print "%d to %d" %(8 + modifier, -1 + modifier)
         print "%d to %d" %(3 + modifier, 8 + modifier)
