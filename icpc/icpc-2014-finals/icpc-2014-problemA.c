@@ -49,6 +49,67 @@ void solve3() {
    return;
 }
 
+/*
+   solution: int -> void
+   Takes the integer corresponding to the desired solution, and outputs the solution
+   as a side-effect. Since loops are preferred over recursion in C, we utilize a
+   while-loop for the pre- and post recursion, and a switch for the base case.
+*/
+void solution(int n) {
+   int tmp = n;
+   int offset = 0;
+   // Do the pre-base set up.
+   while(tmp > 7) {
+      printf("%d to %d\n", 2*tmp - 2 + offset, -1 + offset);
+      printf("%d to %d\n", 3 + offset, 2*tmp - 2 + offset);
+      tmp -= 4;
+      offset += 4;
+   }
+   // Print the solution to the proper base case.
+   switch(tmp) {
+      case 4:
+         printf("%d to %d\n", 6 + offset, -1 + offset);
+         printf("%d to %d\n", 3 + offset, 6 + offset);
+         printf("%d to %d\n", 0 + offset, 3 + offset);
+         printf("%d to %d\n", 7 + offset, 0 + offset);
+         break;
+      case 5:
+         printf("%d to %d\n", 8 + offset, -1 + offset);
+         printf("%d to %d\n", 3 + offset, 8 + offset);
+         printf("%d to %d\n", 6 + offset, 3 + offset);
+         printf("%d to %d\n", 0 + offset, 6 + offset);
+         printf("%d to %d\n", 9 + offset, 0 + offset);
+         break;
+      case 6:
+         printf("%d to %d\n", 10 + offset, -1 + offset);
+         printf("%d to %d\n",  7 + offset, 10 + offset);
+         printf("%d to %d\n",  2 + offset, 7 + offset);
+         printf("%d to %d\n",  6 + offset, 2 + offset);
+         printf("%d to %d\n",  0 + offset, 6 + offset);
+         printf("%d to %d\n", 11 + offset, 0 + offset);
+         break;
+      case 7:
+         printf("%d to %d\n", 12 + offset, -1 + offset);
+         printf("%d to %d\n",  5 + offset, 12 + offset);
+         printf("%d to %d\n",  8 + offset, 5 + offset);
+         printf("%d to %d\n",  3 + offset, 8 + offset);
+         printf("%d to %d\n",  9 + offset, 3 + offset);
+         printf("%d to %d\n",  0 + offset, 9 + offset);
+         printf("%d to %d\n", 13 + offset, 0 + offset);
+         break;
+      default:
+         printf("You shouldn't even be here!\n");
+         exit(-1);
+   }
+   // Do the post-solution recursion.
+   while(tmp < n) {
+      tmp += 4;
+      offset -= 4;
+      printf("%d to %d\n", 0 + offset, 2*tmp - 5 + offset);
+      printf("%d to %d\n", 2*tmp - 1 + offset, 0 + offset);
+   }
+   return;
+}
 
 int main() {
    // Get the n to be used. In a real-world setting, I would test that the input
@@ -62,5 +123,6 @@ int main() {
       solve3();
       return 0;
    }
+   solution(n);
    return 0;
 }
